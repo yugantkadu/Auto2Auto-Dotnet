@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "PaymentStatus";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" />
+    <title>PaymentStatus</title>
+</head>
+<body>
+    <div>
+        @if (ViewBag.IsValidRequest == false)
+        {
+            <p class="lead"><label class="label-danger">Invalid Request.!</label></p>
+        }
+        else
+        {
+            if (ViewBag.IsPaymentSuccess == true)
+            {
+                <p class="lead"><label class="label-warning">Payment done successfully.!</label></p>
+            }
+        }
+    </div>
+</body>
+</html>
+
