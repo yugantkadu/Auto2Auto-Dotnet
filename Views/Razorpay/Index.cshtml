@@ -13,12 +13,12 @@
             data-currency="INR"
             data-order_id="@ViewBag.orderid"
             data-buttontext="Pay with Razorpay"
-            data-name="Seimens Company"
+            data-name="@ViewBag.manufacturerName"
             data-description="Test transaction"
-            data-image="https://cdn2.iconfinder.com/data/icons/logistics-delivery-19/64/logistics_delivery-18-512.png"
-            data-prefill.name="Yugant Kadu"
-            data-prefill.email="yugantkadu@gmail.com"
-            data-prefill.contact="8983506792"
+            data-image="@ViewBag.brandImg"
+            data-prefill.name="@ViewBag.retailerName"
+            data-prefill.email="@ViewBag.email"
+            data-prefill.contact="@ViewBag.contact"
             data-theme.color="#F37254"></script>
     <input type="hidden" custom="Hidden Element" name="hidden">
 </form>

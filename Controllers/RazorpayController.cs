@@ -1,4 +1,5 @@
-﻿using Razorpay.Api;
+﻿using Auto2Auto.Models;
+using Razorpay.Api;
 using Razorpay.Api.Errors;
 using System;
 using System.Collections.Generic;
@@ -12,19 +13,24 @@ namespace Auto2Auto.Controllers
     {
         RazorpayClient client = new RazorpayClient("rzp_test_6oS5DiV9W7efUx", "551J4zlKM4iy5kqKyYmGucyI");
         // GET: Razorpay
-        public ActionResult Index()
+        public ActionResult Index(String orderAmount, String manufacturerName, String brandImg, String retailerName, String email, String contact)
         {
             try
             {
-                var Amount = 50;
+                var Amount = orderAmount;
                 Dictionary<string, object> options = new Dictionary<string, object>();
-                options.Add("amount", Amount * 100); // amount in the smallest currency unit
+                options.Add("amount", Amount); // amount in the smallest currency unit
                 options.Add("receipt", "Order_rcptid_9867");
                 options.Add("currency", "INR");
                 options.Add("payment_capture", "1");
                 Order order = client.Order.Create(options);
                 ViewBag.orderid = Convert.ToString(order["id"]);
-                ViewBag.Amount = Amount;
+                ViewBag.Amount = Int32.Parse(orderAmount);
+                ViewBag.manufacturerName = manufacturerName;
+                ViewBag.brandImg = brandImg;
+                ViewBag.retailerName = retailerName;
+                ViewBag.email = email;
+                ViewBag.contact = contact;
             }
             catch (Razorpay.Api.Errors.BadRequestError ex)
             {

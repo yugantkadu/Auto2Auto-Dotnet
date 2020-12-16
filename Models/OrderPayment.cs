@@ -9,10 +9,10 @@ namespace Auto2Auto.Models
     {
         public int orderid { get; set; }
         public int orderAmount { get; set; }
-        public int manufacturerName { get; set; }
-        public int brandImg { get; set; }
-        public int retailerName { get; set; }
-        public int email { get; set; }
+        public String manufacturerName { get; set; }
+        public String brandImg { get; set; }
+        public String retailerName { get; set; }
+        public String email { get; set; }
         public int contact { get; set; }
     }
 }
