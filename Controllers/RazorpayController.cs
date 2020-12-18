@@ -13,14 +13,14 @@ namespace Auto2Auto.Controllers
     {
         RazorpayClient client = new RazorpayClient("rzp_test_6oS5DiV9W7efUx", "551J4zlKM4iy5kqKyYmGucyI");
         // GET: Razorpay
-        public ActionResult Index(String orderAmount, String manufacturerName, String brandImg, String retailerName, String email, String contact)
+        public ActionResult Index(String orderId, String orderAmount, String manufacturerName, String brandImg, String retailerName, String email, String contact)
         {
             try
             {
                 var Amount = orderAmount;
                 Dictionary<string, object> options = new Dictionary<string, object>();
-                options.Add("amount", Amount); // amount in the smallest currency unit
-                options.Add("receipt", "Order_rcptid_9867");
+                options.Add("amount", Amount);
+                options.Add("receipt", orderId);
                 options.Add("currency", "INR");
                 options.Add("payment_capture", "1");
                 Order order = client.Order.Create(options);
