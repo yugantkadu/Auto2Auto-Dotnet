@@ -15,32 +15,22 @@ namespace Auto2Auto.Controllers
         // GET: Razorpay
         public ActionResult Index(String orderId, String orderAmount, String manufacturerName, String brandImg, String retailerName, String email, String contact)
         {
-            try
-            {
-                var Amount = orderAmount;
-                Dictionary<string, object> options = new Dictionary<string, object>();
-                options.Add("amount", Amount);
-                options.Add("receipt", orderId);
-                options.Add("currency", "INR");
-                options.Add("payment_capture", "1");
-                Order order = client.Order.Create(options);
-                ViewBag.orderid = Convert.ToString(order["id"]);
-                ViewBag.Amount = Int32.Parse(orderAmount);
-                ViewBag.manufacturerName = manufacturerName;
-                ViewBag.brandImg = brandImg;
-                ViewBag.retailerName = retailerName;
-                ViewBag.email = email;
-                ViewBag.contact = contact;
-            }
-            catch (Razorpay.Api.Errors.BadRequestError ex)
-            {
-            }
-            catch (SignatureVerificationError ex)
-            {
-            }
-            catch (Exception ex)
-            {
-            }
+
+            var Amount = orderAmount;
+            Dictionary<string, object> options = new Dictionary<string, object>();
+            options.Add("amount", Amount);
+            options.Add("receipt", orderId);
+            options.Add("currency", "INR");
+            options.Add("payment_capture", "1");
+            Order order = client.Order.Create(options);
+            ViewBag.orderid = Convert.ToString(order["id"]);
+            ViewBag.Amount = Int32.Parse(orderAmount);
+            ViewBag.manufacturerName = manufacturerName;
+            ViewBag.brandImg = brandImg;
+            ViewBag.retailerName = retailerName;
+            ViewBag.email = email;
+            ViewBag.contact = contact;
+
             return View();
         }
 
@@ -90,9 +80,6 @@ namespace Auto2Auto.Controllers
             catch (SignatureVerificationError ex)
             {
                 IsValidRequest = false;
-            }
-            catch (Exception ex)
-            {
             }
 
             ViewBag.IsValidRequest = IsValidRequest;
