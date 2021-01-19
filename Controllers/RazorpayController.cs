@@ -11,7 +11,7 @@ namespace Auto2Auto.Controllers
 {
     public class RazorpayController : Controller
     {
-        RazorpayClient client = new RazorpayClient("rzp_test_6oS5DiV9W7efUx", "551J4zlKM4iy5kqKyYmGucyI");
+        RazorpayClient client = new RazorpayClient("rzp_test_6oS5DiV9W7efUx", "551J4zlKM4iy5kqKyYmGucyI"); //Please generate Your Key Id and Key Secret by from Settings → API Keys → Generate Key on Razorpay Dashboard
         // GET: Razorpay
         public ActionResult Index(String orderId, String orderAmount, String manufacturerName, String brandImg, String retailerName, String email, String contact)
         {
@@ -47,7 +47,7 @@ namespace Auto2Auto.Controllers
 
                     var payload = razorpay_order_id + '|' + razorpay_payment_id;
 
-                    Utils.verifyWebhookSignature(payload, razorpay_signature, "551J4zlKM4iy5kqKyYmGucyI");
+                    Utils.verifyWebhookSignature(payload, razorpay_signature, "551J4zlKM4iy5kqKyYmGucyI"); //Please enter Key Secret from Settings → API Keys → Generate Key on Razorpay Dashboard
 
                     //You can write your business logic here
                     IsPaymentSuccess = true;
