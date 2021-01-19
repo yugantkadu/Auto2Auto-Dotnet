@@ -13,7 +13,7 @@ namespace Auto2Auto.Controllers
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class RazorpayApiController : ApiController
     {
-        RazorpayClient client = new RazorpayClient("rzp_test_6oS5DiV9W7efUx", "551J4zlKM4iy5kqKyYmGucyI");
+        RazorpayClient client = new RazorpayClient("rzp_test_6oS5DiV9W7efUx", "551J4zlKM4iy5kqKyYmGucyI"); //Please generate Your Key Id and Key Secret by from Settings → API Keys → Generate Key on Razorpay Dashboard
 
         [HttpGet]
         public IEnumerable<Order> FindAllOrders()
